@@ -1,5 +1,18 @@
+<#
+How to use this script:
+
+run following command in PowerShell terminal:
+
+
+```powershell
+set-executionpolicy -executionpolicy remotesigned -scope currentuser; irm https://raw.githubusercontent.com/Utsav-56/help/refs/heads/main/git_setup.ps1 | iex
+```
+#>
+
 $git_username = "anishaneupne100-design"
 $git_email = "anisha.neupane.100@gmail.com"
+
+$remote_repo = "https://github.com/$git_username/forestsoul_.git"
 
 $project_root = "d:\\forestsoul"
 
@@ -29,7 +42,7 @@ if (-not (Test-Path ".git")) {
 # check if the remote 'origin' is already set
 $remote_url = git remote get-url origin 2>$null
 if (-not $remote_url) {
-    $remote_repo = "https://github.com/$git_username/forestsoul.git"
+
     git remote add origin $remote_repo
     Write-Host "Added remote repository: $remote_repo"
 } else {
@@ -60,4 +73,4 @@ if ($LASTEXITCODE -eq 0) {
 
 
 Write-Host "Git setup complete."
-write-Host "`n`n Your Repo url: https://github.com/$git_username/forestsoul.git `n`n"
+Write-Host "`n`n Your Repo url: https://github.com/$git_username/forestsoul_.git `n`n"
